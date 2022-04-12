@@ -18,7 +18,7 @@ public class BaseDeDatos {
         return;
     }
     
-    public static void crearChatGen(Usuario usuario, String nombre){
+    public static void crearChatGeneral(Usuario usuario, String nombre){
         return;
     }
     
