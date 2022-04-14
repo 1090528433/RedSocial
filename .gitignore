@@ -2,3 +2,5 @@
 *.mf
 *.class
 nbproject/
+*.iml
+.idea/

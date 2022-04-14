@@ -34,7 +34,7 @@ public class Registro {
     }
     
     public void crearChatGeneral(Usuario usuario, String nombre){
-        BaseDeDatos.registrarseEnChatGeneral(usuario, nombre);
+        BaseDeDatos.crearChatGeneral(usuario, nombre);
     }
     
     public void registrarmeEnChat(Usuario usuario, String nombre){
