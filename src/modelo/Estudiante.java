@@ -22,6 +22,10 @@ public class Estudiante {
         this.claveA = claveA;
     }
 
+    public Estudiante() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -68,10 +72,6 @@ public class Estudiante {
 
     public void setClaveA(String claveA) {
         this.claveA = claveA;
-    }
-    
-    public static Vector mostrar(){
-        return Usuario.mostrar();
     }
     
 }

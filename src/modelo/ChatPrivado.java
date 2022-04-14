@@ -10,32 +10,32 @@ package modelo;
  */
 public class ChatPrivado {
     
-    private Usuario us1;
-    private Usuario us2;
+    private Estudiante es1;
+    private Estudiante es2;
     
     public ChatPrivado(){
         
     }
 
-    public ChatPrivado(Usuario us1, Usuario us2) {
-        this.us1 = us1;
-        this.us2 = us2;
+    public ChatPrivado(Estudiante es1, Estudiante es2) {
+        this.es1 = es1;
+        this.es2 = es2;
     }
 
-    public Usuario getUs1() {
-        return us1;
+    public Estudiante getEs1() {
+        return es1;
     }
 
-    public void setUs1(Usuario us1) {
-        this.us1 = us1;
+    public void setEs1(Estudiante us1) {
+        this.es1 = us1;
     }
 
-    public Usuario getUs2() {
-        return us2;
+    public Estudiante getEs2() {
+        return es2;
     }
 
-    public void setUs2(Usuario us2) {
-        this.us2 = us2;
+    public void setEs2(Estudiante es2) {
+        this.es2 = es2;
     }
     
     

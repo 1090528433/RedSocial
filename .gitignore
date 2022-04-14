@@ -2,3 +2,4 @@
 *.mf
 *.class
 nbproject/
+/build/

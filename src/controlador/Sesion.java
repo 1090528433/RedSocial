@@ -5,9 +5,9 @@ import modelo.*;
 
 public class Sesion {
     
-    ArrayList<Usuario> usuariosConectados = new ArrayList<Usuario>();
+    ArrayList<Estudiante> estudiantesConectados = new ArrayList<Estudiante>();
     
-    private boolean buscarUsuario(String a) {
+    private boolean buscarEstudiante(String a) {
         return true;
     }
     
@@ -18,7 +18,7 @@ public class Sesion {
     
     
     public void iniciarSesion(String nick, String correo, String clave){
-        boolean esValida = buscarUsuario(nick);
+        boolean esValida = buscarEstudiante(nick);
         if(!esValida){
             System.out.println("Credenciales Invalidas");
             return;
@@ -27,21 +27,31 @@ public class Sesion {
         if(!credencialesValidas){
             System.out.println("Credenciales Invalidas");
         }
-        Usuario newUsuario = new Usuario(nick, correo, clave);
-        this.usuariosConectados.add(newUsuario);
-        System.out.println("Usuario Conectado");
+        Estudiante newEstudiante = new Estudiante();
+        this.estudiantesConectados.add(newEstudiante);
+        System.out.println("Estudiante Conectado");
     }
     
     
     
-    public void cerrarSesion(Usuario usuario){
-        usuariosConectados.remove(usuario);
-        System.out.println("Usuario Desconectado");
+    public void cerrarSesion(Estudiante estudiante){
+        estudiantesConectados.remove(estudiante);
+        System.out.println("Estudiante Desconectado");
     }
     
     
     
-    public ArrayList usuariosEnLinea(){
-        return usuariosConectados;
+    public ArrayList estudiantesEnLinea(){
+        return estudiantesConectados;
+    }
+    
+    public boolean cambioContraseña(Estudiante e, String actualContrasena, String nuevaContrasena){
+        boolean usuarioReal = BaseDeDatos.validarCambioContrasena(e, actualContrasena);
+        if(!usuarioReal){
+            System.out.println("No se pudo cambiar la contraseña");
+            return false;
+        }
+        BaseDeDatos.cambiarContrasena(e, nuevaContrasena);
+        return true;
     }
 }

@@ -4,21 +4,21 @@ import modelo.*;
 
 public class Registro {
     
-    public void registrarUsuario(String nombre, String apellido, int edad, String nick, String correo, String clave){
+    public void registrarEstudiante(String nombre, String apellido, int edad, String nick, String correo, String contrasena){
         
         if(12 > edad && edad > 100){
             System.out.println("No puede registrarse");
             return;
         }
-        boolean estaRegistrado = BaseDeDatos.buscarEstudiante(nick);
+        boolean estaRegistrado = BaseDeDatos.mostrarExistenciaCuenta(new Estudiante(nombre, apellido, edad, nick, correo, contrasena));
         if(estaRegistrado){
-            System.out.println("Esta Registrado");
+            System.out.println("No puede registrarse");
             return;
         }
         
         //QUEDA PENDIENTE ENCRIPTAR LA CONTRASEÑA
-        Estudiante newUsuario = new Estudiante(nombre, apellido, edad, nick, correo, clave);
-        BaseDeDatos.registrarEstudiante(newUsuario);
+        Estudiante newEstudiante = new Estudiante(nombre, apellido, edad, nick, correo, contrasena);
+        BaseDeDatos.registrarEstudiante(newEstudiante);
     }
     
     public void eliminarCuenta(Estudiante estudiante, boolean asegurar){
@@ -29,15 +29,24 @@ public class Registro {
         BaseDeDatos.eliminarEstudiante(estudiante);
     }
     
-    public void crearChatPrivado(Usuario usuarioA, Usuario usuarioB){
-        BaseDeDatos.registrarChatPrivado(usuarioA, usuarioB);
+    public void crearChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
+        BaseDeDatos.registrarChatPrivado(estudianteA, estudianteB);
     }
     
-    public void crearChatGeneral(Usuario usuario, String nombre){
-        BaseDeDatos.registrarseEnChatGeneral(usuario, nombre);
+    public void crearChatGeneral(Estudiante estudiante, String nombre){
+        BaseDeDatos.registrarseEnChatGeneral(estudiante, nombre);
     }
     
-    public void registrarmeEnChat(Usuario usuario, String nombre){
-        BaseDeDatos.registrarseEnChatGeneral(usuario, nombre);
+    public void registrarmeEnChat(Estudiante estudiante, String nombre){
+        BaseDeDatos.registrarseEnChatGeneral(estudiante, nombre);
+    }
+}
+
+class Test{
+    public static void main(String[] args) {
+        Registro r = new Registro();
+        r.registrarEstudiante("Ricardo", "Cophene", 45, "Rickpene", "elvergalarga@ufps.edu.co", "bytepalamierda");
+        //Estudiante e = new Estudiante("Ricardo", "Cophene", 45, "Rickpene", "elvergalarga@ufps.edu.co", "bytepalamierda");
+        //r.eliminarCuenta(e, true);
     }
 }

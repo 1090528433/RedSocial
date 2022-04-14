@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class ChatGeneral {
     
-    private ArrayList<Usuario> integrantes = new ArrayList<Usuario>();
+    private ArrayList<Estudiante> integrantes = new ArrayList<Estudiante>();
     private String nameCanal;
     
     public ChatGeneral(){
@@ -23,11 +23,11 @@ public class ChatGeneral {
         this.nameCanal = nameCanal;
     }
 
-    public ArrayList<Usuario> getIntegrantes() {
+    public ArrayList<Estudiante> getIntegrantes() {
         return integrantes;
     }
 
-    public void setIntegrantes(ArrayList<Usuario> integrantes) {
+    public void setIntegrantes(ArrayList<Estudiante> integrantes) {
         this.integrantes = integrantes;
     }
 

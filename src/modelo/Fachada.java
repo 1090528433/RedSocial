@@ -12,7 +12,7 @@ public class Fachada{
         
     }
     
-    public static void mostrar(Usuario obj){
+    public static void mostrar(Estudiante obj){
         newUs.addElement(obj);
     }
     
