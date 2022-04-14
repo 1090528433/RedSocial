@@ -53,6 +53,12 @@ public class BaseDeDatos {
     }
     
     public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){
+
+    public static void crearChatGeneral(Usuario usuario, String nombre){
+        return;
+    }
+    
+    public static void registrarseEnChatGeneral(Usuario usuario, String nombre){
         return;
     }
     

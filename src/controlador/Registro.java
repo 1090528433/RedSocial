@@ -32,9 +32,10 @@ public class Registro {
     public void crearChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
         BaseDeDatos.registrarChatPrivado(estudianteA, estudianteB);
     }
-    
+	
     public void crearChatGeneral(Estudiante estudiante, String nombre){
         BaseDeDatos.registrarseEnChatGeneral(estudiante, nombre);
+
     }
     
     public void registrarmeEnChat(Estudiante estudiante, String nombre){
