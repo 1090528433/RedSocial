@@ -52,16 +52,11 @@ public class BaseDeDatos {
         return;
     }
     
-    public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){
+    public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){}
 
-    public static void crearChatGeneral(Usuario usuario, String nombre){
+    public static void crearChatGeneral(Estudiante estudiante, String nombre){
         return;
     }
-    
-    public static void registrarseEnChatGeneral(Usuario usuario, String nombre){
-        return;
-    }
-    
     public static void eliminarEstudiante(Estudiante estudiante){
         try{
             String sql = "DELETE FROM Estudiante WHERE nickname = ?";
