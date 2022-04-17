@@ -30,7 +30,7 @@ public class Registro {
     }
     
     public void crearChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
-        BaseDeDatos.registrarChatPrivado(estudianteA, estudianteB);
+        BaseDeDatos.crearChatPrivado(estudianteA, estudianteB);
     }
 	
     public void crearChatGeneral(Estudiante estudiante, String nombre){
@@ -42,12 +42,12 @@ public class Registro {
         BaseDeDatos.registrarseEnChatGeneral(estudiante, nombre);
     }
 }
-
-class Test{
-    public static void main(String[] args) {
-        Registro r = new Registro();
-        r.registrarEstudiante("Ricardo", "Cophene", 45, "Rickpene", "elvergalarga@ufps.edu.co", "bytepalamierda");
-        //Estudiante e = new Estudiante("Ricardo", "Cophene", 45, "Rickpene", "elvergalarga@ufps.edu.co", "bytepalamierda");
-        //r.eliminarCuenta(e, true);
-    }
-}
+//
+//class Test{
+//    public static void main(String[] args) {
+//        Registro r = new Registro();
+//        r.registrarEstudiante("Ricardo", "Cophene", 45, "Rickpene", "elvergalarga@ufps.edu.co", "bytepalamierda");
+//        //Estudiante e = new Estudiante("Ricardo", "Cophene", 45, "Rickpene", "elvergalarga@ufps.edu.co", "bytepalamierda");
+//        //r.eliminarCuenta(e, true);
+//    }
+//}

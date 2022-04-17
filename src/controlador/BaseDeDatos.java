@@ -6,6 +6,26 @@ import modelo.*;
 public class BaseDeDatos {
     private static Connection cn = Conexion.getConexion();
     
+    public static void crearChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
+        return;
+    }
+    
+    public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){}
+
+    public static int crearChatGeneral(String nombre){
+        int id = 0;
+        try{
+            String sql = "INSERT INTO ChatG VALUES (?)";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, nombre);
+            
+            id = ps.executeUpdate();
+        }catch(SQLException e){
+            System.err.println(e);
+        }
+        return id;
+    }
+    
     public static void registrarEstudiante(Estudiante estudiante){
         try{
             //La funcion PreparedStatement sirve para hacer consultas en la base de datos(SQL)
@@ -42,20 +62,6 @@ public class BaseDeDatos {
             System.err.println(e);
         }
         return respuesta;
-    }
-    
-    public static void registrarChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
-        return;
-    }
-    
-    public static void crearChatGen(Estudiante estudiante, String nombre){
-        return;
-    }
-    
-    public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){}
-
-    public static void crearChatGeneral(Estudiante estudiante, String nombre){
-        return;
     }
     public static void eliminarEstudiante(Estudiante estudiante){
         try{
@@ -99,5 +105,13 @@ public class BaseDeDatos {
         }catch(SQLException e){
             System.err.println(e);
         }
+    }
+}
+
+class Test{
+    public static void main(String[] args) {
+       String name = "Primer Chat Grupal";
+        int id = BaseDeDatos.crearChatGeneral(name);
+        System.out.println(id);
     }
 }
