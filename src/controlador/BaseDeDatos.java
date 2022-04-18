@@ -12,18 +12,22 @@ public class BaseDeDatos {
     
     public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){}
 
-    public static int crearChatGeneral(String nombre){
-        int id = 0;
+    //ESTE METODO DEBE SER CORREGIDO
+    public static String crearChatGeneral(String nombre){
+        String respuesta = "";
         try{
-            String sql = "INSERT INTO ChatG VALUES (?)";
-            PreparedStatement ps = cn.prepareStatement(sql);
-            ps.setString(1, nombre);
+            String sql = "INSERT INTO ChatG (nombre) VALUES ('" + nombre + "')";
+            Statement stmt = cn.createStatement();
+            stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
             
-            id = ps.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()){
+            respuesta = rs.getString(1);
+           }
         }catch(SQLException e){
             System.err.println(e);
         }
-        return id;
+        return respuesta;
     }
     
     public static void registrarEstudiante(Estudiante estudiante){
@@ -110,8 +114,8 @@ public class BaseDeDatos {
 
 class Test{
     public static void main(String[] args) {
-       String name = "Primer Chat Grupal";
-        int id = BaseDeDatos.crearChatGeneral(name);
-        System.out.println(id);
+       String name = "SPARTANS";
+        String id = BaseDeDatos.crearChatGeneral(name);
+        System.out.println("Se registró el chat: " + name + "con identificador: " + id);
     }
 }
