@@ -6,8 +6,21 @@ import modelo.*;
 public class BaseDeDatos {
     private static Connection cn = Conexion.getConexion();
     
-    public static void crearChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
-        return;
+        public static String crearChatPrivado(Estudiante estudianteA, Estudiante estudianteB){
+            String resultado = "";
+        try{
+            String sql = "INSERT INTO ChatP VALUES ()";
+            Statement stmt = cn.createStatement();
+            stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+             
+            ResultSet rs = stmt.getGeneratedKeys();
+            if(rs.next()){
+                resultado = rs.getString(1);
+            }
+        }catch(SQLException e){
+            System.err.println(e);
+        }
+        return resultado;
     }
     
     public static void registrarseEnChatGeneral(Estudiante estudiante, String nombre){}
@@ -114,8 +127,9 @@ public class BaseDeDatos {
 
 class Test{
     public static void main(String[] args) {
-       String name = "SPARTANS";
-        String id = BaseDeDatos.crearChatGeneral(name);
-        System.out.println("Se registró el chat: " + name + "con identificador: " + id);
+//       String name = "SPARTANS";
+//        String id = BaseDeDatos.crearChatGeneral(name);
+//        System.out.println("Se registró el chat: " + name + "con identificador: " + id);
+        String id = BaseDeDatos.crearChatPrivado(new Estudiante(), new Estudiante());
     }
 }
